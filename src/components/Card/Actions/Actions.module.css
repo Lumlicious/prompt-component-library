@@ -1,0 +1,18 @@
+.action-list {
+  list-style-type: none;
+}
+
+.action {
+  padding: 16px 16px 16px 0;
+  margin-left: 24px;
+  border-bottom: 1px solid #0000001a;
+  font-size: 14px;
+  line-height: 18.9px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.action.confirmed {
+  color: #999999;
+}

@@ -1,0 +1,82 @@
+// src/theme.js
+import { extendTheme } from "@chakra-ui/react";
+import "@fontsource-variable/inter";
+
+const theme = extendTheme({
+  fonts: {
+    heading: `'Inter Variable', sans-serif`,
+    body: `'Inter Variable', sans-serif`,
+  },
+  components: {
+    Button: {
+      baseStyle: {
+        _disabled: {
+          bg: "#E4E4E4",
+          color: "#CCCCCC",
+          cursor: "not-allowed",
+        },
+      },
+      variants: {
+        primary: {
+          fontSize: "14",
+          px: "12px",
+          py: "8px",
+          bg: "#FFCD00",
+          border: "1px solid",
+          borderColor: "#0000001A",
+          _hover: {
+            bg: "#F3C400",
+            borderColor: "#0000001A",
+          },
+          _active: {
+            bg: "#E1B500",
+            borderColor: "#0000001A",
+          },
+        },
+        secondary: {
+          fontSize: "14",
+          px: "12px",
+          py: "8px",
+          bg: "#FFFFFF",
+          border: "1px solid",
+          borderColor: "#0000001A",
+          _hover: {
+            bg: "#F4F4F4",
+            borderColor: "#0000001A",
+          },
+          _active: {
+            bg: "#ECECEC",
+            borderColor: "#0000001A",
+          },
+        },
+        destructive: {
+          fontSize: "14",
+          px: "12px",
+          py: "8px",
+          bg: "#DC2D2D",
+          border: "1px solid",
+          borderColor: "#0000001A",
+          color: "white",
+          _hover: {
+            bg: "#C81919",
+            borderColor: "#0000001A",
+          },
+          _active: {
+            bg: "#B21616",
+            borderColor: "#0000001A",
+          },
+        },
+      },
+    },
+    Modal: {
+      baseStyle: {
+        body: {
+          padding: 0, // Removes padding specifically from the ModalBody
+        },
+      },
+    },
+    Badge: {},
+  },
+});
+
+export default theme;
