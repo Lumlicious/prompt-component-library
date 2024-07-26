@@ -4,7 +4,7 @@ interface ActionsProps {
   children: React.ReactNode;
 }
 
-const Actions = ({ children, ...props }: ActionsProps) => {
+const Actions = ({ children }: ActionsProps) => {
   return <ul className={styles["action-list"]}>{children}</ul>;
 };
 

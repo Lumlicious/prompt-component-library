@@ -10,7 +10,8 @@
   --btn-destructive--pressed: #b21616;
   --btn-disabled: #e4e4e4;
 
-  --text-black: #231f20;
+  --text-primary: #231f20;
+  --text-secondary: #999999;
 
   --bg-yellow: #ffea7d;
   --fg-yellow: #958325;

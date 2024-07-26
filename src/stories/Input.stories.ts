@@ -14,8 +14,22 @@ const meta: Meta<typeof Input> = {
 export default meta;
 type Story = StoryObj<typeof Input>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     placeholder: "Enter text",
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    placeholder: "Enter text",
+    isDisabled: true,
+  },
+};
+
+export const Error: Story = {
+  args: {
+    placeholder: "Enter text",
+    isInvalid: true,
   },
 };

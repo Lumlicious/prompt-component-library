@@ -75,7 +75,16 @@ const theme = extendTheme({
         },
       },
     },
-    Badge: {},
+    Input: {
+      sizes: {
+        md: {
+          field: {
+            fontSize: "14px",
+            fontWeight: 400,
+          },
+        },
+      },
+    },
   },
 });
 

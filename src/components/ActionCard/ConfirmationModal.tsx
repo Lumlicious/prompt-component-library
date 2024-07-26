@@ -31,7 +31,8 @@ const ConfirmationModal = ({
   const [isValid, setIsValid] = useState(false);
   const { number } = data;
 
-  const handleInputChange = (e) => setInput(e.target.value);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setInput(e.target.value);
 
   useEffect(() => {
     if (input !== number.toString()) {

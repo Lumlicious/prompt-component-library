@@ -4,7 +4,7 @@ interface CardProps {
   children: React.ReactNode;
 }
 
-const Card = ({ children, ...props }: CardProps) => {
+const Card = ({ children }: CardProps) => {
   return <div className={styles.card}>{children}</div>;
 };
 
@@ -12,7 +12,7 @@ interface CardHeaderProps {
   children: React.ReactNode;
 }
 
-const CardHeader = ({ children, ...props }: CardHeaderProps) => {
+const CardHeader = ({ children }: CardHeaderProps) => {
   return <div className={styles["card-header"]}>{children}</div>;
 };
 
@@ -20,7 +20,7 @@ interface CardBodyProps {
   children: React.ReactNode;
 }
 
-const CardBody = ({ children, ...props }: CardBodyProps) => {
+const CardBody = ({ children }: CardBodyProps) => {
   return <div className={styles["card-body"]}>{children}</div>;
 };
 
