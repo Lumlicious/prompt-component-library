@@ -1,31 +1,3 @@
-:root {
-  --btn-primary: #ffcd00;
-  --btn-primary--hover: #f3c400;
-  --btn-primary--pressed: #e1b500;
-  --btn-secondary: #ffffff;
-  --btn-secondary--hover: #f4f4f4;
-  --btn-secondary--pressed: #ececec;
-  --btn-destructive: #dc2d2d;
-  --btn-destructive--hover: #c81919;
-  --btn-destructive--pressed: #b21616;
-  --btn-disabled: #e4e4e4;
-
-  --text-black: #231f20;
-
-  --bg-yellow: #ffea7d;
-  --fg-yellow: #958325;
-  --bg-orange: #ffdbc0;
-  --fg-orange: #905722;
-  --bg-red: #ffdcdc;
-  --fg-red: #922f2f;
-  --bg-green: #b7f4b5;
-  --fg-green: #30672f;
-  --bg-blue: #dceaff;
-  --fg-blue: #2f4c67;
-  --bg-gray: #0000000d;
-  --fg-gray: #000000b2;
-}
-
 .confirmed {
   color: #999999;
 }
