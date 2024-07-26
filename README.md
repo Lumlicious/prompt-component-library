@@ -1,7 +1,5 @@
 # Component Library Prompt
 
-[Figma Design](https://www.figma.com/design/ZM2a95BHxD2ghAbktn3Ql9/Principal-Frontend-Engineer-Prompt?node-id=0-1&t=mSJlgshD4vl554Ta-1)
-
 ## Stack
 
 - Vite
@@ -11,6 +9,7 @@
 - Typescript
 - Storybook
 - ViTest
+- esLint
 
 ## Instructions
 
