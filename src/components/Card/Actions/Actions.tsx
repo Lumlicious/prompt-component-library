@@ -11,6 +11,7 @@ const Actions = ({ children, ...props }: ActionsProps) => {
 interface ActionProps {
   children: React.ReactNode;
   onClick?: React.MouseEventHandler;
+  status?: "" | "confirmed";
 }
 
 const Action = ({ children, ...props }: ActionProps) => {

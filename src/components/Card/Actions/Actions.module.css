@@ -12,7 +12,3 @@
   justify-content: space-between;
   cursor: pointer;
 }
-
-.action.confirmed {
-  color: #999999;
-}

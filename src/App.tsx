@@ -31,40 +31,48 @@ function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [input, setInput] = useState("");
   const [isValid, setIsValid] = useState(false);
+  const [isConfirmed, setIsConfirmed] = useState(false);
   const { number, companyName } = data;
 
   const handleInputChange = (e) => setInput(e.target.value);
 
-  // const isError = () => {
-  //   input !== number.toString();
-  // }
-
   useEffect(() => {
     if (input !== number.toString()) {
-      console.log("invalid");
       setIsValid(true);
     } else {
       setIsValid(false);
     }
   }, [input]);
 
+  const handleConfirmation = () => {
+    setIsConfirmed(true);
+    onClose();
+  };
+
+  const handleOpenModal = () => {
+    if (!isConfirmed) {
+      onOpen();
+    }
+  };
+
   return (
     <div style={{ padding: "24px" }}>
-      <Card>
+      <ActionCard data={data} />
+      {/* <Card>
         <CardHeader>
           <div className="card-title">Order #{number}</div>
           <div className="card-subtitle">{companyName}</div>
         </CardHeader>
         <CardBody>
           <Actions>
-            <Action onClick={onOpen}>
-              <div className="action">
+            <Action onClick={handleOpenModal}>
+              <div className={`action ${isConfirmed && "confirmed"}`}>
                 <div className="action-icon">
                   <FeatherIcon icon={"package"} size={16} />
                 </div>
                 Confirm Delivery
               </div>
-              <Badge color="green">Confirmed</Badge>
+              {isConfirmed && <Badge color="green">Confirmed</Badge>}
             </Action>
             <Action>
               <div className="action">
@@ -111,7 +119,7 @@ function App() {
               <Button
                 width="100%"
                 variant="primary"
-                onClick={onClose}
+                onClick={handleConfirmation}
                 leftIcon={<FeatherIcon icon={"check"} size={14} />}
                 isDisabled={isValid}
               >
@@ -120,6 +128,7 @@ function App() {
               <Button
                 width="100%"
                 variant="secondary"
+                onClick={onClose}
                 leftIcon={<FeatherIcon icon={"x"} size={14} />}
               >
                 Cancel
@@ -127,47 +136,151 @@ function App() {
             </Stack>
           </ModalFooter>
         </ModalContent>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }
 
-// interface ActionCardProps {
-//   data: Data;
-// }
+interface ActionCardProps {
+  data: Data;
+}
 
-// const ActionCard = ({ data }: ActionCardProps) => {
-//   const { isOpen, onOpen, onClose } = useDisclosure();
-//   const { number, companyName } = data;
-//   return (
-//     <Card>
-//       <CardHeader>
-//         <div className="card-title">Order #123455</div>
-//         <div className="card-subtitle">Spliff Decision</div>
-//       </CardHeader>
-//       <CardBody>
-//         <Actions>
-//           <Action onClick={onOpen}>
-//             <div className="action">
-//               <div className="action-icon">
-//                 <FeatherIcon icon={"package"} size={16} />
-//               </div>
-//               Confirm Delivery
-//             </div>
-//             <Badge color="green">Confirmed</Badge>
-//           </Action>
-//           <Action>
-//             <div className="action">
-//               <div className="action-icon">
-//                 <FeatherIcon icon={"dollar-sign"} size={16} />
-//               </div>
-//               Record Payment
-//             </div>
-//           </Action>
-//         </Actions>
-//       </CardBody>
-//     </Card>
-//   );
-// };
+const ActionCard = ({ data }: ActionCardProps) => {
+  const [isConfirmed, setIsConfirmed] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { number, companyName } = data;
+
+  const handleOpenModal = () => {
+    if (!isConfirmed) {
+      onOpen();
+    }
+  };
+
+  const handleConfirmation = () => {
+    setIsConfirmed(true);
+    onClose();
+  };
+
+  return (
+    <>
+      <Card>
+        <CardHeader>
+          <div className="card-title">Order #{number}</div>
+          <div className="card-subtitle">{companyName}</div>
+        </CardHeader>
+        <CardBody>
+          <Actions>
+            <Action onClick={handleOpenModal}>
+              <div className={`action ${isConfirmed && "confirmed"}`}>
+                <div className="action-icon">
+                  <FeatherIcon icon={"package"} size={16} />
+                </div>
+                Confirm Delivery
+              </div>
+              {isConfirmed && <Badge color="green">Confirmed</Badge>}
+            </Action>
+            <Action>
+              <div className="action">
+                <div className="action-icon">
+                  <FeatherIcon icon={"dollar-sign"} size={16} />
+                </div>
+                Record Payment
+              </div>
+            </Action>
+          </Actions>
+        </CardBody>
+      </Card>
+      <ConfirmationModal
+        isOpen={isOpen}
+        onClose={onClose}
+        data={data}
+        handleConfirmation={handleConfirmation}
+      />
+    </>
+  );
+};
+
+interface ConfirmationModalProps {
+  isOpen: any;
+  onClose: any;
+  data: Data;
+  handleConfirmation: () => void;
+}
+
+const ConfirmationModal = ({
+  isOpen,
+  onClose,
+  data,
+  handleConfirmation,
+}: ConfirmationModalProps) => {
+  const [input, setInput] = useState("");
+  const [isValid, setIsValid] = useState(false);
+  const { number } = data;
+
+  const handleInputChange = (e) => setInput(e.target.value);
+
+  useEffect(() => {
+    if (input !== number.toString()) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
+  }, [input]);
+
+  return (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>
+          <div className="confirm-header">
+            <div className="confirm-icon">
+              <FeatherIcon icon={"alert-triangle"} size={24} />
+            </div>
+            <div className="confirm-title">
+              Confirm delivery for Order #{number}
+            </div>
+            <div className="confirm-sub-title">
+              Enter the order number to confirm delivery
+            </div>
+          </div>
+        </ModalHeader>
+        <ModalBody>
+          <div>
+            <FormControl className="order-number" isInvalid={isValid}>
+              <Input
+                className="order-number-input"
+                placeholder="Enter order number"
+                value={input}
+                onChange={handleInputChange}
+              />
+            </FormControl>
+          </div>
+        </ModalBody>
+
+        <ModalFooter>
+          <Stack direction="row" spacing={4} width="100%">
+            <Button
+              width="100%"
+              variant="primary"
+              onClick={handleConfirmation}
+              leftIcon={<FeatherIcon icon={"check"} size={14} />}
+              isDisabled={isValid}
+            >
+              Confirm Delivery
+            </Button>
+            <Button
+              width="100%"
+              variant="secondary"
+              onClick={onClose}
+              leftIcon={<FeatherIcon icon={"x"} size={14} />}
+            >
+              Cancel
+            </Button>
+          </Stack>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
+};
 
 export default App;
