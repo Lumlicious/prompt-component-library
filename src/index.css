@@ -8,10 +8,14 @@
   --btn-destructive: #dc2d2d;
   --btn-destructive--hover: #c81919;
   --btn-destructive--pressed: #b21616;
+  --btn-destructive--foreground: #ffffff;
   --btn-disabled: #e4e4e4;
+  --btn-border: #0000001a;
 
   --text-primary: #231f20;
   --text-secondary: #999999;
+
+  --iconography: #cccccc;
 
   --bg-container: #ffffff;
   --bg-nested-container: #f5f5f5;

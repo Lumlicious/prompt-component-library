@@ -1,13 +1,13 @@
-import styles from "./ActionCard.module.css";
-import { useDisclosure } from "@chakra-ui/react";
+import styles from './ActionCard.module.css';
+import { useDisclosure } from '@chakra-ui/react';
 
-import FeatherIcon from "feather-icons-react";
-import { Badge } from "..//Badge/Badge";
-import { Card, CardHeader, CardBody } from "../Card/Card";
-import { Action, Actions } from "../Card/Actions/Actions";
+import FeatherIcon from 'feather-icons-react';
+import { Badge } from '..//Badge/Badge';
+import { Card, CardHeader, CardBody } from '../Card/Card';
+import { Action, Actions } from '../Card/Actions/Actions';
 
-import { useState } from "react";
-import ConfirmationModal from "./ConfirmationModal";
+import { useState } from 'react';
+import ConfirmationModal from './ConfirmationModal';
 
 export interface Data {
   number: number;
@@ -38,26 +38,30 @@ const ActionCard = ({ data }: ActionCardProps) => {
     <>
       <Card>
         <CardHeader>
-          <div className={styles["card-title"]}>Order #{number}</div>
-          <div className={styles["card-subtitle"]}>{companyName}</div>
+          <div className={styles['card-title']}>Order #{number}</div>
+          <div className={styles['card-subtitle']}>{companyName}</div>
         </CardHeader>
         <CardBody>
           <Actions>
             <Action onClick={handleOpenModal}>
-              <div
-                className={`${styles["action"]} ${isConfirmed && styles["confirmed"]}`}
-              >
-                <div className={styles["action-icon"]}>
-                  <FeatherIcon icon={"package"} size={16} />
+              <div className={`${styles['action']} ${isConfirmed && styles['confirmed']}`}>
+                <div className={styles['action-icon']}>
+                  <FeatherIcon
+                    icon={'package'}
+                    size={16}
+                  />
                 </div>
                 Confirm Delivery
               </div>
-              {isConfirmed && <Badge color="green">Confirmed</Badge>}
+              {isConfirmed && <Badge color='green'>Confirmed</Badge>}
             </Action>
             <Action>
-              <div className={styles["action"]}>
-                <div className={styles["action-icon"]}>
-                  <FeatherIcon icon={"dollar-sign"} size={16} />
+              <div className={styles['action']}>
+                <div className={styles['action-icon']}>
+                  <FeatherIcon
+                    icon={'dollar-sign'}
+                    size={16}
+                  />
                 </div>
                 Record Payment
               </div>

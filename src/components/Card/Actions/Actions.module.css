@@ -3,11 +3,11 @@
 }
 
 .action {
-  padding: 16px 16px 16px 0;
-  margin-left: 24px;
+  padding: 1rem 1rem 1rem 0;
+  margin-left: 1.5rem;
   border-bottom: 1px solid #0000001a;
-  font-size: 14px;
-  line-height: 18.9px;
+  font-size: 0.875rem;
+  line-height: 1.18rem;
   display: flex;
   justify-content: space-between;
   cursor: pointer;

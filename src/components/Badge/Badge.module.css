@@ -1,44 +1,44 @@
 .badge {
   padding: 4px;
   border-radius: 3px;
-  font-size: 10px;
-  line-height: 10px;
+  font-size: 0.625rem;
+  line-height: 0.625rem;
   border: 1px solid #0000001a;
   text-align: center;
 }
 
 .badge-yellow {
-  background-color: #ffea7d;
-  color: #958325;
+  background-color: var(--bg-yellow);
+  color: var(--fg-yellow);
 }
 
 .badge-orange {
-  background-color: #ffdbc0;
-  color: #905722;
+  background-color: var(--bg-orange);
+  color: var(--fg-orange);
 }
 
 .badge-red {
-  background-color: #ffdcdc;
-  color: #922f2f;
+  background-color: var(--bg-red);
+  color: var(--fg-red);
 }
 
 .badge-green {
-  background-color: #b7f4b5;
-  color: #30672f;
+  background-color: var(--bg-green);
+  color: var(--fg-green);
 }
 
 .badge-blue {
-  background-color: #dceaff;
-  color: #2f4c67;
+  background-color: var(--bg-blue);
+  color: var(--fg-blue);
 }
 
 .badge-gray {
-  background-color: #0000000d;
-  color: #000000b2;
+  background-color: var(--bg-gray);
+  color: var(--fg-gray);
 }
 
 .badge-round {
   border-radius: 9999px;
-  background-color: #0000000d;
-  color: #000000b2;
+  background-color: var(--bg-gray);
+  color: var(--fg-gray);
 }
